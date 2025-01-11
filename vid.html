@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      width: 400px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 20px;
+      color: #0088cc;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0077bb;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #999;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="c:/Users/User/Downloads/telegram-logo-telegram-icon-free-free-vector.jpg" alt="Telegram Logo">
+    </div>
+
+    <!-- Login Form -->
+    <h1>Log In to Telegram</h1>
+    <form id="login-form">
+      <input type="text" id="phone-number" placeholder="Phone Number" required>
+      <button type="submit" class="btn">Send Code</button>
+    </form>
+
+    <!-- Verification Code Form -->
+    <form id="code-form" style="display: none;">
+      <p>We've sent a verification code to your phone.</p>
+      <input type="text" id="verification-code" placeholder="Verification Code" required>
+      <button type="submit" class="btn">Verify</button>
+    </form>
+
+    <!-- Footer -->
+    <div class="footer">Fast and secure login experience powered by Telegram.</div>
+  </div>
+
+  <script>
+    // Select forms and inputs
+    const loginForm = document.getElementById("login-form");
+    const codeForm = document.getElementById("code-form");
+    const phoneNumberInput = document.getElementById("phone-number");
+    const verificationCodeInput = document.getElementById("verification-code");
+
+    // Handle phone number submission
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form reload
+      
+      const phoneNumber = phoneNumberInput.value;
+      console.log("Phone Number:", phoneNumber); // Log for debugging
+      
+      alert(`Phone Number Submitted: ${phoneNumber}`);
+      loginForm.style.display = "none"; // Hide phone form
+      codeForm.style.display = "block"; // Show code input form
+    });
+
+    // Handle verification code submission
+    codeForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form reload
+      
+      const verificationCode = verificationCodeInput.value;
+      console.log("Verification Code:", verificationCode); // Log for debugging
+      
+      alert(`Verification Code Submitted. Redirecting to the surprise page...`);
+      
+      // Redirect to the video surprise page
+      window.location.href = "video-surprise.html";
+    });
+  </script>
+</body>
+</html>
